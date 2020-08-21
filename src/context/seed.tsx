@@ -13,6 +13,7 @@ import {
 import { defaultInclude, Include } from "../settings/Include";
 import { defaultSettings, Settings } from "../settings/Settings";
 import { defaultWorlds, Worlds } from "../settings/Worlds";
+import { defaultHints, Hints} from "../settings/Hints"
 
 interface SeedContextType {
 	seed: Seed | null;
@@ -35,13 +36,14 @@ interface SeedContextType {
 		mode: GameMode;
 		goa: [GoAModSettings, React.Dispatch<React.SetStateAction<GoAModSettings>>];
 	};
+	hints: [Hints, React.Dispatch<React.SetStateAction<Hints>>]
 }
 
 export const SeedContext = React.createContext<SeedContextType>({} as any);
 
 export const SeedContextProvider: React.FC = ({ children }) => {
 	const query = useConfigQuery();
-
+	console.log(query)
 	const seedName = useSeedName();
 
 	const [settings, setSettings] = useState<Settings>({
@@ -68,6 +70,11 @@ export const SeedContextProvider: React.FC = ({ children }) => {
 		defaultExperimental
 	);
 
+	const [hints, setHints] = useState<Hints>({
+		...defaultHints,
+		...(query.hints || {}),
+	});
+
 	const configuration = useMemo<Configuration>(
 		() => ({
 			name: seedName.name,
@@ -76,8 +83,9 @@ export const SeedContextProvider: React.FC = ({ children }) => {
 			include,
 			experimental,
 			gameMode: { mode: settings.gameMode, goa },
+			hints,
 		}),
-		[seedName.name, settings, worlds, include, experimental, goa]
+		[seedName.name, settings, worlds, include, experimental, goa, hints]
 	);
 
 	const seed = useSeed(configuration);
@@ -93,6 +101,7 @@ export const SeedContextProvider: React.FC = ({ children }) => {
 				include: [include, setInclude],
 				experimental: [experimental, setExperimental],
 				gameMode: { mode: settings.gameMode, goa: [goa, setGoA] },
+				hints: [hints, setHints],
 			}}
 		>
 			{children}

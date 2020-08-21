@@ -27,3 +27,8 @@ export enum Multiplier {
 	FOUR,
 	FIVE,
 }
+
+export enum Found {
+	NOT_FOUND,
+	FOUND,
+}

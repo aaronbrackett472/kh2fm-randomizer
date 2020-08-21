@@ -360,11 +360,13 @@ export const abilityRewards = {
 		type: RewardType.ABILITY,
 		name: "Second Chance",
 		value: "019F",
+		important: true,
 	},
 	ONCE_MORE: {
 		type: RewardType.ABILITY,
 		name: "Once More",
 		value: "01A0",
+		important: true,
 	},
 	NO_EXPERIENCE: {
 		type: RewardType.ABILITY,

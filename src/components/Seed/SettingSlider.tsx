@@ -6,6 +6,7 @@ import React from "react";
 export const Marks = {
 	onOff: { 0: "Off", 1: "On" },
 	randomizing: { 0: "Vanilla", 1: "Replace", 2: "Randomize" },
+	found: {0: "Not Found", 1: "Found"}
 };
 
 export interface SettingSliderProps extends SliderProps {

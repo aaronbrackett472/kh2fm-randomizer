@@ -11,6 +11,7 @@ import {
 	TabPaneExperimental,
 } from "./TabPaneExperimental";
 import { TabPaneGameModeSettings } from "./TabPaneGameModeSettings";
+import { TabPaneHints } from "./TabPaneHints";
 import { TabPaneInclude } from "./TabPaneInclude";
 import { TabPaneSettings } from "./TabPaneSettings";
 import { TabPaneSpoilerLogs } from "./TabPaneSpoilerLogs";
@@ -61,6 +62,10 @@ export const Seed: React.FC<RouteComponentProps> = () => {
 					disabled={experimentalSettings.length === 0}
 				>
 					<TabPaneExperimental />
+				</Tabs.TabPane>
+
+				<Tabs.TabPane tab="Hints" key="hints">
+					<TabPaneHints active={activeKey === "hints"} />
 				</Tabs.TabPane>
 
 				<Tabs.TabPane tab="Spoiler Logs" key="spoilerLogs">

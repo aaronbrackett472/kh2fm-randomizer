@@ -9,6 +9,7 @@ import {
 import { defaultInclude } from "../settings/Include";
 import { defaultSettings } from "../settings/Settings";
 import { defaultWorlds } from "../settings/Worlds";
+import { defaultHints } from "../settings/Hints";
 
 function difference<T>(object: T, base: T) {
 	// as any cause I have no idea why it's wrong but it works
@@ -38,12 +39,14 @@ export const useConfigDiff = (): ConfigDiff => {
 			worlds: difference(configuration.worlds, defaultWorlds),
 			include: difference(configuration.include, defaultInclude),
 			goa: difference(configuration.gameMode.goa, defaultGoAModSettings),
+			hints: difference(configuration.hints, defaultHints)
 		}),
 		[
 			configuration.settings,
 			configuration.worlds,
 			configuration.include,
 			configuration.gameMode.goa,
+			configuration.hints,
 		]
 	);
 };

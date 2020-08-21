@@ -4,6 +4,7 @@ import { GoAModSettings } from "./GoAModSettings";
 import { Include } from "./Include";
 import { Settings } from "./Settings";
 import { Worlds } from "./Worlds";
+import { Hints } from "./Hints";
 
 export interface Configuration {
 	name: string;
@@ -15,4 +16,5 @@ export interface Configuration {
 		mode: GameMode;
 		goa: GoAModSettings;
 	};
+	hints: Hints;
 }

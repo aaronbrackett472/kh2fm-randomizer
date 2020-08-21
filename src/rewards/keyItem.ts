@@ -5,6 +5,7 @@ export const keyItemRewards = {
 		type: RewardType.TORN_PAGES,
 		name: "Torn Page",
 		value: "0020",
+		important: true,
 	},
 	MUNNY_POUCH_OLETTE: {
 		type: RewardType.KEY_ITEM,
@@ -90,6 +91,7 @@ export const keyItemRewards = {
 		type: RewardType.KEY_ITEM,
 		name: "Promise Charm",
 		value: "020C",
+		important: true,
 	},
 	HADES_CUP_TROPHY: {
 		type: RewardType.KEY_ITEM,
